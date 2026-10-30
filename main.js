@@ -248,12 +248,13 @@
         const card = btn.closest('.card');
         if (!card) return;
         lastFocus = btn;
+        dlg.dataset.briefId = card.dataset.briefId || '';
         els.art.replaceChildren(...Array.from($('.card__art', card).childNodes, (n) => n.cloneNode(true)));
         els.chip.replaceChildren($('.chip', card).cloneNode(true));
         els.title.textContent = $('.card__title', card).textContent;
         const copy = $('.card__text', card).cloneNode(true);
         $$('.card__more', copy).forEach((n) => n.remove());
-        els.text.textContent = copy.textContent.trim();
+        els.text.textContent = card.dataset.briefDescription || copy.textContent.trim();
         resetTimer();
         dlg.showModal();
       });

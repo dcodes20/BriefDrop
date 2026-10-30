@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="enhance.css">
   <script src="main.js" defer></script>
+  <script type="module" src="backend.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,7 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav__actions">
-        <a class="nav__signup" href="#briefs">SignUp</a>
+        <button class="nav__signup" id="account-open" type="button">Sign up</button>
         <button class="nav__menu" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span class="icon icon--menu"></span></button>
       </div>
     </div>
@@ -114,12 +115,13 @@
         <div class="briefs__head">
           <h2 class="briefs__title">Today’s briefs</h2>
           <p class="briefs__sub">Real client-style projects. Ready when you are.</p>
+          <p class="backend-status" id="backend-status" role="status" hidden></p>
         </div>
         <div class="briefs__list">
           <div class="briefs__stack">
 
             <div class="tilt tilt--1">
-              <article class="card card--fintech">
+              <article class="card card--fintech" data-brief-slug="fintech-workflow">
                 <div class="card__art">
                   <img src="assets/card-fintech.png" alt="" width="170" height="170">
                 </div>
@@ -135,7 +137,7 @@
             </div>
 
             <div class="tilt tilt--2">
-              <article class="card card--writing">
+              <article class="card card--writing" data-brief-slug="five-story-hooks">
                 <div class="card__art">
                   <div class="card__art-text" aria-label="What if... Nobody told you this?">
                     <span>What if...</span>
@@ -155,7 +157,7 @@
             </div>
 
             <div class="tilt tilt--3">
-              <article class="card card--visual">
+              <article class="card card--visual" data-brief-slug="fresh-photo-angle">
                 <div class="card__art">
                   <img src="assets/card-visual.png" alt="" width="240" height="165">
                 </div>
@@ -267,13 +269,13 @@
           </div>
 
           <div class="example">
-            <div class="example__summary"><b>YOUR CREATIVE REPS</b><span>Example practice journal · tap a day</span></div>
+            <div class="example__summary"><b>YOUR CREATIVE REPS</b><span>Sign in to track your practice days.</span></div>
             <div class="days">
-              <div class="day"><button class="day__mark day__mark--on" type="button" aria-pressed="true" aria-label="Monday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">M</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Monday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">M</span></div>
               <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Tuesday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">T</span></div>
-              <div class="day"><button class="day__mark day__mark--on" type="button" aria-pressed="true" aria-label="Wednesday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">W</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Wednesday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">W</span></div>
               <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Thursday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">T</span></div>
-              <div class="day"><button class="day__mark day__mark--on" type="button" aria-pressed="true" aria-label="Friday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">F</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Friday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">F</span></div>
               <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Saturday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">S</span></div>
               <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Sunday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">S</span></div>
             </div>
@@ -400,7 +402,7 @@
           <b>THE PLAYGROUND</b>
           <a href="#briefs">Explore challenges</a>
           <a href="#how">How it works</a>
-          <a href="#">Your practice space</a>
+          <a href="#" data-open-practice>Your practice space</a>
         </div>
         <div class="footer__group">
           <b>THE GOOD STUFF</b>
@@ -426,6 +428,11 @@
       <div class="dialog__chip"></div>
       <h2 class="dialog__title" id="dialog-title"></h2>
       <p class="dialog__text"></p>
+      <div class="practice-actions">
+        <button class="btn btn--primary" type="button" id="save-brief">Save this brief</button>
+        <button class="btn btn--ghost" type="button" id="complete-brief" hidden>Mark complete</button>
+      </div>
+      <p class="backend-feedback" id="brief-feedback" role="status" hidden></p>
       <div class="timer">
         <div>
           <span class="timer__label">We just keep the timer honest.</span>
@@ -436,6 +443,38 @@
           <button class="btn btn--ghost" type="button" id="timer-reset">Reset</button>
         </div>
       </div>
+    </div>
+  </dialog>
+
+  <dialog class="dialog account-dialog" id="account-dialog" aria-labelledby="account-title">
+    <button class="dialog__close" type="button" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="dialog__body">
+      <h2 class="dialog__title" id="account-title">Your practice space</h2>
+      <p class="dialog__text" id="account-copy">Sign in to save briefs and keep your reflections private.</p>
+      <form class="account-form" id="account-form">
+        <label for="account-email">Email</label>
+        <input id="account-email" name="email" type="email" autocomplete="email" required>
+        <label for="account-password">Password</label>
+        <input id="account-password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+        <button class="btn btn--primary" id="account-submit" type="submit">Sign in</button>
+      </form>
+      <button class="account-switch" id="account-switch" type="button">New here? Create an account</button>
+      <button class="account-switch" id="account-signout" type="button" hidden>Sign out</button>
+      <p class="backend-feedback" id="account-feedback" role="status" aria-live="polite" hidden></p>
+    </div>
+  </dialog>
+
+  <dialog class="dialog practice-dialog" id="practice-dialog" aria-labelledby="practice-title">
+    <button class="dialog__close" type="button" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="dialog__body">
+      <h2 class="dialog__title" id="practice-title">Your practice space</h2>
+      <p class="dialog__text" id="practice-copy">Your saved briefs and reflections are private to your account.</p>
+      <div class="practice-list" id="practice-list"></div>
+      <p class="backend-feedback" id="practice-feedback" role="status" aria-live="polite" hidden></p>
     </div>
   </dialog>
 

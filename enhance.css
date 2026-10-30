@@ -274,6 +274,44 @@ html:has(dialog[open]) { overflow: hidden; }
 .timer__btns { display: flex; gap: 8px; }
 .timer .btn { padding: 12px 18px; }
 
+.nav__signup { display: inline-flex; cursor: pointer; }
+.briefs__head { position: relative; }
+.backend-status, .backend-feedback {
+  width: 100%; padding: 10px 12px; border: 1px solid rgba(249,232,195,.24);
+  border-radius: 10px; color: var(--cream); background: var(--bg);
+  font-size: 13px; overflow-wrap: anywhere;
+}
+.backend-status[hidden], .backend-feedback[hidden] { display: none; }
+.backend-status.is-error, .backend-feedback.is-error { color: #ff9a8f; border-color: rgba(255,90,74,.45); }
+.practice-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.practice-actions .btn { flex: 1 1 160px; }
+.practice-actions .btn[hidden] { display: none; }
+.account-form { display: flex; flex-direction: column; gap: 10px; }
+.account-form[hidden] { display: none; }
+.account-form label, .practice-reflection { color: var(--text-soft); font-size: 13px; font-weight: 700; }
+.account-form input, .practice-reflection textarea, .practice-card select {
+  width: 100%; padding: 12px; color: #fff; background: var(--bg);
+  border: 1px solid rgba(249,232,195,.24); border-radius: 10px; font: inherit;
+}
+.account-form input:focus-visible, .practice-reflection textarea:focus-visible, .practice-card select:focus-visible {
+  outline: 2px solid var(--cream); outline-offset: 2px;
+}
+.account-form .btn { margin-top: 8px; }
+.account-switch { width: fit-content; color: var(--cream); font-size: 13px; text-align: left; }
+.account-switch:hover { text-decoration: underline; }
+.account-dialog, .practice-dialog { padding-top: 20px; }
+.practice-dialog { width: min(92vw, 680px); }
+.practice-list { display: grid; gap: 14px; }
+.practice-card { display: grid; gap: 10px; padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: var(--bg); }
+.practice-card h3 { font-family: var(--f-display); font-size: 15px; line-height: 1.4; }
+.practice-category { color: var(--cream); font-family: var(--f-ui); font-size: 11px; }
+.practice-reflection { display: grid; gap: 7px; }
+.practice-reflection textarea { resize: vertical; font-weight: 400; }
+.practice-card__actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.practice-card__actions .btn { padding: 10px 14px; }
+.practice-empty { color: var(--text-mute); }
+.btn:disabled { cursor: not-allowed; opacity: .65; }
+
 /* ---------------------------------------------------------------------
    6. Tablet  (640 – 899)
    --------------------------------------------------------------------- */
