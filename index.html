@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>BriefDrop – Nothing to build? Not anymore.</title>
+  <meta name="description" content="BriefDrop gives designers, developers, and digital creatives realistic project briefs that fit their skills and time.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="enhance.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top">BRIEFDROP</a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#briefs">Briefs</a>
+        <a href="#stories">Stories</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav__actions">
+        <a class="nav__signup" href="#briefs">SignUp</a>
+        <button class="nav__menu" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span class="icon icon--menu"></span></button>
+      </div>
+    </div>
+    <nav class="nav__panel" id="menu" aria-label="Menu">
+      <a href="#how" style="--i:0">How it works</a>
+      <a href="#briefs" style="--i:1">Today’s briefs</a>
+      <a href="#stories" style="--i:2">Stories</a>
+      <a href="#faq" style="--i:3">FAQ</a>
+      <a class="btn btn--primary" href="#briefs" style="--i:4">Gimme a brief</a>
+    </nav>
+    <div class="scrollbar" aria-hidden="true"><i></i></div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="section hero">
+      <div class="section__inner hero__copy">
+        <div class="hero__text">
+          <p class="hero__kicker">Practice playground for creators</p>
+          <div class="hero__title-group">
+            <h1 class="hero__title">Nothing to build? Not anymore.</h1>
+            <p class="hero__lede">BriefDrop gives designers, developers, and digital creatives realistic project briefs that fit their skills and time, then helps turn finished work into a case study you can take anywhere.</p>
+          </div>
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#briefs">Gimme a brief</a>
+          <a class="btn btn--ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__art">
+          <img src="assets/hero.png" alt="A creative lounging on a beanbag with a laptop, surrounded by a plant, a backpack and a coffee cup" width="402" height="402">
+          <p class="hero__sticker"><span>Start with a brief.</span><span>Finish with something to show.</span></p>
+        </div>
+        <p class="hero__audience">Built for designers · Developers · Students · Working creatives</p>
+      </div>
+    </section>
+
+    <!-- Brief. Build. Bounce. -->
+    <section class="section steps" id="how">
+      <div class="section__inner">
+        <h2 class="steps__title">Brief. Build. Bounce.</h2>
+        <div class="steps__list">
+          <div class="step step--1">
+            <img class="step__art" src="assets/step-1.png" alt="" width="133" height="133">
+            <div class="step__body">
+              <div class="step__num">1</div>
+              <div class="step__copy">
+                <h3 class="step__title">Get a real brief</h3>
+                <p class="step__text">Choose your skill, level, and available time. Get a challenge with context, not a vague prompt.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rule"></div>
+          <div class="step step--2">
+            <img class="step__art" src="assets/step-2.png" alt="" width="147" height="98">
+            <div class="step__body">
+              <div class="step__num">2</div>
+              <div class="step__copy">
+                <h3 class="step__title">Build in your tools</h3>
+                <p class="step__text">Use Figma, code, or whatever you already love. We just keep the timer honest.</p>
+              </div>
+            </div>
+          </div>
+          <div class="rule"></div>
+          <div class="step step--3">
+            <img class="step__art" src="assets/step-3.png" alt="" width="167" height="111">
+            <div class="step__body">
+              <div class="step__num">3</div>
+              <div class="step__copy">
+                <h3 class="step__title">Ship &amp; export</h3>
+                <p class="step__text">Get a ready-to-paste Ship Kit. Take it straight to Behance, Notion, GitHub or your site.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Today's briefs -->
+    <section class="section briefs" id="briefs">
+      <div class="section__inner">
+        <div class="briefs__head">
+          <h2 class="briefs__title">Today’s briefs</h2>
+          <p class="briefs__sub">Real client-style projects. Ready when you are.</p>
+        </div>
+        <div class="briefs__list">
+          <div class="briefs__stack">
+
+            <div class="tilt tilt--1">
+              <article class="card card--fintech">
+                <div class="card__art">
+                  <img src="assets/card-fintech.png" alt="" width="170" height="170">
+                </div>
+                <div class="card__details">
+                  <div class="card__top">
+                    <span class="chip chip--design"><span class="icon icon--component"></span>UI/UX DESIGN</span>
+                    <h3 class="card__title">Fintech app design.</h3>
+                    <p class="card__text card__text--lead">You’ll own the design of our core workflow, the part of the product where users spend 80% of their time and where most of our drop-off happens. <button class="card__more" type="button" data-open-brief>Read More</button></p>
+                  </div>
+                  <button class="btn btn--primary btn--sm" type="button" data-open-brief>Open</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="tilt tilt--2">
+              <article class="card card--writing">
+                <div class="card__art">
+                  <div class="card__art-text" aria-label="What if... Nobody told you this?">
+                    <span>What if...</span>
+                    <span class="accent">Nobody told</span>
+                    <span>you this?</span>
+                  </div>
+                </div>
+                <div class="card__details">
+                  <div class="card__top">
+                    <span class="chip chip--writing"><span class="icon icon--sm icon--chip icon--type"></span>WRITING</span>
+                    <h3 class="card__title">One story. Five hooks.</h3>
+                    <p class="card__text">Turn a tiny everyday moment into five opening lines that make people want to read on.</p>
+                  </div>
+                  <button class="btn btn--primary btn--sm" type="button" data-open-brief>Open</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="tilt tilt--3">
+              <article class="card card--visual">
+                <div class="card__art">
+                  <img src="assets/card-visual.png" alt="" width="240" height="165">
+                </div>
+                <div class="card__details">
+                  <div class="card__top">
+                    <span class="chip chip--visual"><span class="icon icon--sm icon--chip icon--eye"></span>VISUAL STORYTELLING</span>
+                    <h3 class="card__title">Find your fresh angle.</h3>
+                    <p class="card__text">Take three photos of one object. Change the light, the crop, and the story it tells.</p>
+                  </div>
+                  <button class="btn btn--primary btn--sm" type="button" data-open-brief>Open</button>
+                </div>
+              </article>
+            </div>
+
+          </div>
+          <a class="btn btn--primary btn--block" href="#briefs">View all challenges</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 / A peek inside -->
+    <section class="section peek">
+      <div class="section__inner">
+        <div class="peek__copy">
+        <p class="eyebrow">04 / A peek inside</p>
+        <h2 class="peek__title">Your ideas. A little direction.</h2>
+        <p class="peek__lede">A clear brief, a gentle nudge, and room for your own weird, wonderful take. Everything you need to get moving—nothing to get in your way.</p>
+        <ul class="peek__features">
+          <li class="peek__feature"><span class="icon icon--md icon--check"></span>Helpful constraints, not rigid rules</li>
+          <li class="peek__feature"><span class="icon icon--md icon--check"></span>Save drafts in your private practice space</li>
+          <li class="peek__feature"><span class="icon icon--md icon--check"></span>Reflect before you move on</li>
+        </ul>
+        <a class="cta cta--red" href="#briefs">Give this one a go <span class="icon icon--arrow"></span></a>
+        </div>
+
+        <div class="phone" role="group" aria-label="Preview of the BriefDrop app">
+          <div class="phone__status" aria-hidden="true">9:41</div>
+          <div class="phone__body">
+            <div class="phone__greet">
+              <p class="phone__greet-title">Ready when you are.</p>
+              <div class="phone__streak"><span class="icon icon--flame" aria-hidden="true"></span><span><i data-count="4" style="font-style:normal">4</i>-day streak</span></div>
+            </div>
+
+            <div class="drop">
+              <p class="drop__label">YOUR NEXT BEST BRIEF</p>
+              <p class="drop__title">Design a calm savings experience for young adults</p>
+              <div class="meta"><span>Fintech</span><i class="dot"></i><span>Intermediate</span><i class="dot"></i><span>3–5 hours</span></div>
+              <a class="btn btn--primary" href="#briefs">Start this one</a>
+            </div>
+
+            <div class="daily">
+              <div class="daily__head"><strong>Today’s Daily Drop</strong><span>See all</span></div>
+              <div class="drop drop--daily">
+                <p class="drop__label">DAILY</p>
+                <p class="drop__title">Design a calm savings experience for young adults</p>
+                <div class="drop__row">
+                  <div class="meta"><span>Fintech</span><i class="dot"></i><span>Intermediate</span><i class="dot"></i><span>3–5 hours</span></div>
+                  <a class="btn btn--primary btn--start" href="#briefs">Start </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="tiles">
+              <button class="tile" type="button" data-tile="dice"><span class="icon icon--dices"></span>Surprise me</button>
+              <button class="tile tile--bookmark" type="button" data-tile="save" aria-pressed="false"><span class="icon icon--bookmark"></span>Saved briefs</button>
+              <button class="tile tile--zap" type="button" data-tile="zap"><span class="icon icon--zap"></span>Build my own</button>
+            </div>
+          </div>
+          <a class="btn btn--primary phone__cta" href="#briefs">Show me a brief</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 / Progress, not perfection -->
+    <section class="section progress">
+      <div class="section__inner">
+        <p class="eyebrow">05 / Progress, not perfection</p>
+        <h2 class="progress__title">Confidence comes from the doing.</h2>
+        <p class="progress__lede">Not likes. Not views. Evidence that you showed up, tried a new approach, and learned something you can use again.</p>
+
+        <div class="benefits">
+          <div class="benefit">
+            <span class="icon icon--sm icon--star"></span>
+            <div class="benefit__copy">
+              <h3 class="benefit__title">Find your creative range</h3>
+              <p class="benefit__text">Try unfamiliar formats without making a big commitment.</p>
+            </div>
+          </div>
+          <div class="benefit">
+            <span class="icon icon--sm icon--star"></span>
+            <div class="benefit__copy">
+              <h3 class="benefit__title">Make your progress visible</h3>
+              <p class="benefit__text">Revisit old attempts and notice how your choices change.</p>
+            </div>
+          </div>
+          <div class="benefit">
+            <span class="icon icon--sm icon--star"></span>
+            <div class="benefit__copy">
+              <h3 class="benefit__title">Build a habit you can keep</h3>
+              <p class="benefit__text">A few meaningful reps beat another all-or-nothing streak.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="journal">
+          <div class="journal__head">
+            <h3 class="journal__title">Look what you’re building.</h3>
+            <span class="icon icon--xl icon--sparkles"></span>
+          </div>
+
+          <div class="example">
+            <div class="example__summary"><b>YOUR CREATIVE REPS</b><span>Example practice journal · tap a day</span></div>
+            <div class="days">
+              <div class="day"><button class="day__mark day__mark--on" type="button" aria-pressed="true" aria-label="Monday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">M</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Tuesday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">T</span></div>
+              <div class="day"><button class="day__mark day__mark--on" type="button" aria-pressed="true" aria-label="Wednesday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">W</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Thursday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">T</span></div>
+              <div class="day"><button class="day__mark day__mark--on" type="button" aria-pressed="true" aria-label="Friday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">F</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Saturday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">S</span></div>
+              <div class="day"><button class="day__mark day__mark--off" type="button" aria-pressed="false" aria-label="Sunday"><span class="icon icon--check"></span></button><span class="day__label" aria-hidden="true">S</span></div>
+            </div>
+            <div class="example__rule"></div>
+            <div class="skill">
+              <div class="skill__row"><b>Sharper storytelling</b><span>In motion</span></div>
+              <div class="meter"><i style="--w:71.4%"></i></div>
+              <p class="skill__note">Hooks, structure &amp; finding the point</p>
+            </div>
+            <div class="skill">
+              <div class="skill__row"><b>A more intentional eye</b><span>In motion</span></div>
+              <div class="meter"><i style="--w:53.6%"></i></div>
+              <p class="skill__note">Framing, color &amp; noticing the details</p>
+            </div>
+          </div>
+
+          <div class="note-wrap">
+            <div class="note">
+              <p class="note__label">NOTE TO FUTURE ME</p>
+              <p class="note__quote">“My first idea isn’t always my most interesting one. Keep going.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 / You're in good company -->
+    <section class="section stories" id="stories">
+      <div class="section__inner">
+        <p class="eyebrow">06 / You’re in good company</p>
+        <h2 class="stories__title">For the ‘what if I tried…’ people.</h2>
+        <p class="stories__lede">A few imagined creator journeys. These stories are illustrative—not real testimonials or promises of results.</p>
+
+        <div class="stories__list">
+          <article class="story story--violet" style="--i:0">
+            <p class="eyebrow">An imagined sidequest story</p>
+            <p class="story__quote">“Ten minutes felt doable. Five messy hooks later, I had one I actually wanted to turn into a story.”</p>
+            <div class="story__who">
+              <span class="story__avatar">J</span>
+              <div class="story__id"><span class="story__name">Jules</span><span class="story__role">The “I’ll start tomorrow” writer</span></div>
+            </div>
+            <div class="story__rule"></div>
+            <p class="story__close">A little structure goes a long way.</p>
+          </article>
+
+          <article class="story story--green" style="--i:1">
+            <p class="eyebrow">An imagined sidequest story</p>
+            <p class="story__quote">“I used to take a hundred shots and hope. Now I pause and ask what I want the frame to say.”</p>
+            <div class="story__who">
+              <span class="story__avatar">K</span>
+              <div class="story__id"><span class="story__name">Kai</span><span class="story__role">The camera-roll collector</span></div>
+            </div>
+            <div class="story__rule"></div>
+            <p class="story__close">Better questions. More intentional work.</p>
+          </article>
+
+          <article class="story story--amber" style="--i:2">
+            <p class="eyebrow">An imagined sidequest story</p>
+            <p class="story__quote">“Not having to publish made it easier to try. Turns out making something bad can feel pretty good.”</p>
+            <div class="story__who">
+              <span class="story__avatar">R</span>
+              <div class="story__id"><span class="story__name">Remi</span><span class="story__role">The creatively curious beginner</span></div>
+            </div>
+            <div class="story__rule"></div>
+            <p class="story__close">Less pressure leaves room for surprises.</p>
+          </article>
+        </div>
+
+        <p class="stories__foot">Different starting points. Same permission to experiment.</p>
+      </div>
+    </section>
+
+    <!-- 07 / FAQ -->
+    <section class="section faq" id="faq">
+      <div class="section__inner">
+        <p class="eyebrow">07 / Before you jump in</p>
+        <h2 class="faq__title">Good questions. Easy answers.</h2>
+        <p class="faq__lede">The only thing you don’t need to ask: ‘Am I good enough to start?’ You are.</p>
+        <p class="faq__hello">Something else on your mind? Say hello ↗</p>
+
+        <div class="faq__list">
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-1"><span>Do I need to call myself a creator?</span><i class="icon icon--chevron-down"></i></button>
+            <div class="faq__panel" id="faq-1"><div class="faq__clip"><p class="faq__a">Nope. If you’re curious about making things, you’re in the right place. Start wherever you are, with whatever you have.</p></div></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-2"><span>Is this a course?</span><i class="icon icon--chevron-down"></i></button>
+            <div class="faq__panel" id="faq-2"><div class="faq__clip"><p class="faq__a">Think playground, not classroom. Sidequest is hands-on practice through short briefs, creative constraints, and a simple reflection after each attempt.</p></div></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-3"><span>Do I have to share my work?</span><i class="icon icon--chevron-down"></i></button>
+            <div class="faq__panel" id="faq-3"><div class="faq__clip"><p class="faq__a">Not at all. Your practice space is private by default. You decide what leaves your notebook—and what stays delightfully unfinished.</p></div></div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__q" type="button" aria-expanded="true" aria-controls="faq-4"><span>What do I need, and is it free to try?</span><i class="icon icon--chevron-down"></i></button>
+            <div class="faq__panel" id="faq-4"><div class="faq__clip"><p class="faq__a">A browser, a little time, and your curiosity. Try the starter challenges free. A phone camera or a blank document is plenty—no fancy gear needed.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="section closing">
+      <div class="section__inner closing__inner">
+        <span class="icon icon--hero icon--sparkles closing__icon" style="color:var(--red)"></span>
+        <p class="eyebrow">YOUR NEXT GOOD IDEA IS ONE TRY AWAY</p>
+        <h2 class="closing__title">Go on. Make a little something.</h2>
+        <p class="closing__lede">Ten minutes. One prompt. A whole lot of possibility.</p>
+        <a class="cta cta--red" href="#briefs">Start my first sidequest <span class="icon icon--arrow"></span></a>
+        <p class="closing__fine">Free starter challenges · No credit card · No pressure to publish</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="section footer">
+    <div class="footer__inner">
+      <img class="footer__art" src="assets/footer-art.png" alt="" width="167" height="167">
+      <div class="footer__brand"><span class="icon icon--md icon--crown" style="width:17px;height:17px"></span><b>sidequest</b><span>®</span></div>
+      <p class="footer__tag">A little practice. A little play. A little more you.</p>
+      <a class="cta cta--blue footer__cta" href="#briefs">Start a sidequest <span class="icon icon--arrow"></span></a>
+      <nav class="footer__nav" aria-label="Footer">
+        <div class="footer__group">
+          <b>THE PLAYGROUND</b>
+          <a href="#briefs">Explore challenges</a>
+          <a href="#how">How it works</a>
+          <a href="#">Your practice space</a>
+        </div>
+        <div class="footer__group">
+          <b>THE GOOD STUFF</b>
+          <a href="#">Our philosophy</a>
+          <a href="#faq">Say hello</a>
+          <a href="#">Instagram ↗</a>
+        </div>
+      </nav>
+      <div class="footer__rule"></div>
+      <button class="footer__close" type="button" data-burst>Stay curious. <span class="icon icon--lg icon--sparkles"></span></button>
+      <p class="footer__copy">© 2026 Buildle. Say less. Build something.</p>
+      <div class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </footer>
+
+  <!-- Brief details dialog -->
+  <dialog class="dialog" id="brief-dialog" aria-labelledby="dialog-title">
+    <button class="dialog__close" type="button" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="dialog__art" aria-hidden="true"></div>
+    <div class="dialog__body">
+      <div class="dialog__chip"></div>
+      <h2 class="dialog__title" id="dialog-title"></h2>
+      <p class="dialog__text"></p>
+      <div class="timer">
+        <div>
+          <span class="timer__label">We just keep the timer honest.</span>
+          <span class="timer__time" role="timer" aria-live="off">00:00</span>
+        </div>
+        <div class="timer__btns">
+          <button class="btn btn--primary" type="button" id="timer-toggle">Start timer</button>
+          <button class="btn btn--ghost" type="button" id="timer-reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+</body>
+</html>

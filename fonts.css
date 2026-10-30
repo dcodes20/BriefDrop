@@ -1,0 +1,13 @@
+/* Self-hosted fonts (latin subset) – no external requests needed */
+@font-face { font-family: "Unbounded"; font-style: normal; font-weight: 200 900; font-display: swap;
+  src: url("assets/fonts/unbounded-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Nunito"; font-style: normal; font-weight: 200 1000; font-display: swap;
+  src: url("assets/fonts/nunito-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Fredoka"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url("assets/fonts/fredoka-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Space Grotesk"; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Gochi Hand"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("assets/fonts/gochi-hand-latin-400-normal.woff2") format("woff2"); }
