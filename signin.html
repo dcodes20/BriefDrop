@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>BriefDrop – Sign in</title>
+  <meta name="description" content="Welcome back. Sign in to continue building.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="signin.css">
+  <script src="signin.js" defer></script>
+</head>
+<body>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <main class="signin">
+    <div class="panel">
+      <header class="top" data-in>
+        <a class="logo" href="index.html" aria-label="BriefDrop home">BRIEFDROP</a>
+      </header>
+
+      <div class="head">
+        <h1 class="title">Welcome back</h1>
+        <p class="sub" data-in>Sign in to continue building.</p>
+      </div>
+
+      <form class="form" id="form" novalidate>
+        <div class="field" data-in>
+          <label class="field__label" for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false"
+                 placeholder="you@email.com" aria-describedby="email-err" required>
+          <span class="field__bar" aria-hidden="true"></span>
+          <p class="field__err" id="email-err" role="alert"></p>
+        </div>
+
+        <div class="field" data-in>
+          <label class="field__label" for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password"
+                 placeholder="Your password" aria-describedby="password-err" required>
+          <button class="field__toggle" type="button" aria-label="Show password" aria-pressed="false"><svg class="eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /></svg><svg class="eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" /> <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" /> <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" /> <path d="m2 2 20 20" /></svg></button>
+          <span class="field__bar" aria-hidden="true"></span>
+          <p class="field__err" id="password-err" role="alert"></p>
+        </div>
+
+        <a class="forgot" href="#" id="forgot" data-in>Forgot password?</a>
+
+        <button class="cta" type="submit" data-in><span class="cta__label">Sign in</span></button>
+      </form>
+
+      <div class="or" data-in aria-hidden="true"><span></span><p>OR</p><span></span></div>
+
+      <div class="social" data-in>
+        <button class="social__btn" type="button" data-provider="Apple"><svg class="brand" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span>Continue with Apple</span></button>
+        <button class="social__btn" type="button" data-provider="Google"><svg class="brand" viewBox="0 0 256 256" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#4285f4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"/><path fill="#34a853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"/><path fill="#fbbc05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"/><path fill="#eb4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"/></svg><span>Continue with Google</span></button>
+      </div>
+
+      <p class="create" data-in>New here? <a href="#" id="create">Create account</a></p>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

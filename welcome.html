@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>BriefDrop – Welcome</title>
+  <meta name="description" content="Nothing to build? Not anymore. Your next project is loading.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/welcome-brief.png" as="image">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="welcome.css">
+  <script src="welcome.js" defer></script>
+</head>
+<body>
+
+  <main class="welcome">
+    <header class="welcome__top">
+      <a class="logo" href="index.html" aria-label="BriefDrop home">BRIEFDROP</a>
+    </header>
+
+    <div class="welcome__copy">
+      <h1 class="title">Nothing to build? Not anymore.</h1>
+      <p class="sub">Your next project is loading.</p>
+    </div>
+
+    <div class="art">
+      <div class="stage">
+        <div class="float">
+          <span class="note" aria-hidden="true"></span>
+          <img class="art__img" src="assets/welcome-brief.png" width="804" height="804"
+               alt="A creator at a desk, pen to chin, thinking over a BRIEF checklist: understand users, solve real problems, create simple experiences, make an impact.">
+        </div>
+      </div>
+    </div>
+
+    <div class="welcome__actions">
+      <a class="cta" id="drop-btn" href="index.html?account=signup"><span class="cta__label">Gimme a brief</span></a>
+      <p class="signin">Already building? <a href="signin.html" id="signin">Sign in</a></p>
+    </div>
+  </main>
+
+  <!-- A freshly dropped brief -->
+  <dialog class="drop" id="drop" aria-labelledby="drop-title">
+    <button class="drop__close" type="button" aria-label="Close"><span class="i i-x"></span></button>
+    <div class="drop__art" aria-hidden="true"></div>
+    <div class="drop__body">
+      <span class="chip" id="drop-chip"><span class="i" id="drop-chip-icon"></span><span id="drop-chip-text"></span></span>
+      <h2 class="drop__title" id="drop-title"></h2>
+      <p class="drop__text" id="drop-text"></p>
+      <div class="drop__btns">
+        <a class="btn btn--primary" href="index.html#briefs">Start this one</a>
+        <button class="btn btn--ghost" type="button" id="drop-another"><span class="i i-dices"></span>Drop another</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

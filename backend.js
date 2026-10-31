@@ -399,10 +399,13 @@ async function openPractice() {
 }
 
 function bindEvents() {
-  $('#account-open').addEventListener('click', () => {
-    setSignupMode(false);
-    showAccount();
-  });
+  const accountButton = $('#account-open');
+  if (accountButton instanceof HTMLButtonElement) {
+    accountButton.addEventListener('click', () => {
+      setSignupMode(false);
+      showAccount();
+    });
+  }
 
   $('#account-switch').addEventListener('click', () => setSignupMode(!signingUp));
 
@@ -499,6 +502,13 @@ function bindEvents() {
 }
 
 async function initialize() {
+  const signupRequested = new URLSearchParams(window.location.search).get('account') === 'signup';
+  const openRequestedSignup = () => {
+    if (!signupRequested) return;
+    setSignupMode(true);
+    showAccount();
+  };
+
   bindEvents();
   renderAuth();
   if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
@@ -506,6 +516,7 @@ async function initialize() {
       backendStatus,
       'Supabase is not connected yet. Follow the setup steps in README.md to add your project URL and public anon key.',
     );
+    openRequestedSignup();
     return;
   }
 
@@ -531,8 +542,10 @@ async function initialize() {
     await loadBriefs();
     await refreshPrivateData();
     message(backendStatus, '');
+    openRequestedSignup();
   } catch (error) {
     message(backendStatus, `Supabase could not be reached: ${errorText(error)}`, true);
+    openRequestedSignup();
   }
 }
 
