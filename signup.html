@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>BriefDrop – Create account</title>
+  <meta name="description" content="Let’s get you building. Takes less than 30 seconds.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="signin.css">
+  <link rel="stylesheet" href="signup.css">
+  <script type="module" src="signup.js"></script>
+</head>
+<body>
+
+  <div class="glow" aria-hidden="true"></div>
+
+  <main class="signin signup">
+    <div class="panel">
+      <header class="top" data-in>
+        <a class="logo" href="index.html" aria-label="BriefDrop home">BRIEFDROP</a>
+      </header>
+
+      <div class="head">
+        <h1 class="title">Let’s get you building</h1>
+        <p class="sub" data-in>Takes less than 30 seconds.</p>
+      </div>
+
+      <form class="form" id="form" novalidate>
+        <div class="fields">
+          <div class="field" data-in>
+            <label class="field__label" for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Full name" aria-describedby="name-err" required>
+            <span class="field__bar" aria-hidden="true"></span>
+            <p class="field__err" id="name-err" role="alert"></p>
+          </div>
+
+          <div class="field" data-in>
+            <label class="field__label" for="email">Email</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="none" spellcheck="false" placeholder="you@email.com" aria-describedby="email-err" required>
+            <span class="field__bar" aria-hidden="true"></span>
+            <p class="field__err" id="email-err" role="alert"></p>
+          </div>
+
+          <div class="field field--pw" data-in>
+            <label class="field__label" for="password">Password</label>
+            <span class="field__meter" id="meter" aria-live="polite"></span>
+            <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Your password" aria-describedby="password-err" minlength="8" required>
+            <button class="field__toggle" type="button" aria-label="Show password" aria-pressed="false"><svg class="eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /></svg><svg class="eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" /> <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" /> <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" /> <path d="m2 2 20 20" /></svg></button>
+            <span class="field__bar" aria-hidden="true"></span>
+            <p class="field__err" id="password-err" role="alert"></p>
+          </div>
+
+          <div class="field field--confirm" data-in>
+            <label class="field__label" for="confirm">Confirm password</label>
+            <input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Confirm password" aria-describedby="confirm-err" required>
+            <svg class="field__ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+            <span class="field__bar" aria-hidden="true"></span>
+            <p class="field__err" id="confirm-err" role="alert"></p>
+          </div>
+        </div>
+
+        <button class="cta" type="submit" data-in><span class="cta__label">Create account</span></button>
+        <p class="create" data-in>Already have an account? <a href="signin.html" id="signin">Sign in</a></p>
+        <p class="auth-feedback" id="auth-feedback" role="status" aria-live="polite" hidden></p>
+
+        <label class="terms" id="terms" data-in>
+          <input type="checkbox" id="agree" name="agree" aria-describedby="terms-err">
+          <span class="terms__box" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <span class="terms__text">By continuing you agree to our <a href="#" data-doc="Terms">Terms</a> &amp; <a href="#" data-doc="Privacy">Privacy</a>.</span>
+        </label>
+        <p class="terms__err" id="terms-err" role="alert"></p>
+      </form>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>

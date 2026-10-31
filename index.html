@@ -28,7 +28,7 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav__actions">
-        <button class="nav__signup" id="account-open" type="button">Sign up</button>
+        <a class="nav__signup" id="account-open" href="signup.html">Sign up</a>
         <button class="nav__menu" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span class="icon icon--menu"></span></button>
       </div>
     </div>
@@ -460,6 +460,7 @@
         <input id="account-password" name="password" type="password" autocomplete="current-password" minlength="8" required>
         <button class="btn btn--primary" id="account-submit" type="submit">Sign in</button>
       </form>
+      <button class="account-switch" id="account-reset" type="button">Forgot password?</button>
       <button class="account-switch" id="account-switch" type="button">New here? Create an account</button>
       <button class="account-switch" id="account-signout" type="button" hidden>Sign out</button>
       <p class="backend-feedback" id="account-feedback" role="status" aria-live="polite" hidden></p>

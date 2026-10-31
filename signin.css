@@ -109,11 +109,10 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .create a::before { content: ""; position: absolute; inset: -4px -3px -3px; z-index: -1; border-radius: 1px; background: var(--primary); transform: rotate(-4deg); transform-origin: left center; transition: transform .35s cubic-bezier(.3,1.4,.5,1); }
 .create a:hover::before, .create a:focus-visible::before { transform: rotate(-6deg) scale(1.08, 1.18); }
 
-/* ------------------------------------------------------------- toast */
-.toast { position: fixed; left: 50%; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 100; max-width: min(92vw, 420px); padding: 12px 18px; border-radius: 14px;
-  background: var(--surface); border: 1px solid rgba(249,232,195,.25); font-size: 14px; line-height: 1.4; color: var(--soft); box-shadow: 0 16px 40px -12px rgba(0,0,0,.8);
-  opacity: 0; transform: translate(-50%, 16px); pointer-events: none; transition: opacity .25s, transform .35s cubic-bezier(.3,1.4,.5,1); }
-.toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+[hidden] { display: none !important; }
+.auth-feedback { margin-top: 18px; padding: 12px 14px; border: 1px solid rgba(249,232,195,.25); border-radius: 12px; background: var(--surface); color: var(--soft); font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.auth-feedback.is-error { border-color: rgba(255,107,91,.55); color: #ffb0a7; }
+.social__btn:disabled, .forgot[aria-disabled="true"] { opacity: .6; cursor: wait; }
 
 /* ------------------------------------------------------------- motion */
 @keyframes fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }

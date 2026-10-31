@@ -36,27 +36,10 @@
     </div>
 
     <div class="welcome__actions">
-      <button class="cta" id="drop-btn" type="button"><span class="cta__label">Gimme a brief</span></button>
-      <p class="signin">Already building? <a href="#" id="signin">Sign in</a></p>
+      <a class="cta" id="drop-btn" href="signup.html"><span class="cta__label">Gimme a brief</span></a>
+      <p class="signin">Already building? <a href="signin.html" id="signin">Sign in</a></p>
     </div>
   </main>
-
-  <!-- A freshly dropped brief -->
-  <dialog class="drop" id="drop" aria-labelledby="drop-title">
-    <button class="drop__close" type="button" aria-label="Close"><span class="i i-x"></span></button>
-    <div class="drop__art" aria-hidden="true"></div>
-    <div class="drop__body">
-      <span class="chip" id="drop-chip"><span class="i" id="drop-chip-icon"></span><span id="drop-chip-text"></span></span>
-      <h2 class="drop__title" id="drop-title"></h2>
-      <p class="drop__text" id="drop-text"></p>
-      <div class="drop__btns">
-        <a class="btn btn--primary" href="index.html#briefs">Start this one</a>
-        <button class="btn btn--ghost" type="button" id="drop-another"><span class="i i-dices"></span>Drop another</button>
-      </div>
-    </div>
-  </dialog>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>
 </html>

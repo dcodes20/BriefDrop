@@ -10,7 +10,7 @@
   <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="signin.css">
-  <script src="signin.js" defer></script>
+  <script type="module" src="signin.js"></script>
 </head>
 <body>
 
@@ -50,6 +50,17 @@
         <button class="cta" type="submit" data-in><span class="cta__label">Sign in</span></button>
       </form>
 
+      <form class="form" id="recovery-form" hidden>
+        <div class="field">
+          <label class="field__label" for="new-password">New password</label>
+          <input id="new-password" name="password" type="password" autocomplete="new-password"
+                 placeholder="At least 8 characters" minlength="8" required>
+          <span class="field__bar" aria-hidden="true"></span>
+        </div>
+        <button class="cta" type="submit"><span class="cta__label">Update password</span></button>
+      </form>
+      <p class="auth-feedback" id="auth-feedback" role="status" aria-live="polite" hidden></p>
+
       <div class="or" data-in aria-hidden="true"><span></span><p>OR</p><span></span></div>
 
       <div class="social" data-in>
@@ -57,11 +68,9 @@
         <button class="social__btn" type="button" data-provider="Google"><svg class="brand" viewBox="0 0 256 256" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#4285f4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"/><path fill="#34a853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"/><path fill="#fbbc05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"/><path fill="#eb4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"/></svg><span>Continue with Google</span></button>
       </div>
 
-      <p class="create" data-in>New here? <a href="#" id="create">Create account</a></p>
+      <p class="create" data-in>New here? <a href="signup.html">Create account</a></p>
     </div>
   </main>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 </body>
 </html>

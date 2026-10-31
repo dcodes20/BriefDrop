@@ -68,6 +68,7 @@ function renderAuth() {
     ? `Signed in as ${session.user.email}. Your saved work is private to your account.`
     : 'Sign in to save briefs and keep your reflections private.';
   $('#account-form').hidden = signedIn;
+  $('#account-reset').hidden = signedIn;
   $('#account-switch').hidden = signedIn;
   $('#account-signout').hidden = !signedIn;
   $('#account-feedback').hidden = !signedIn;
@@ -399,9 +400,11 @@ async function openPractice() {
 }
 
 function bindEvents() {
-  $('#account-open').addEventListener('click', () => {
-    setSignupMode(false);
-    showAccount();
+  const accountButton = $('#account-open');
+  accountButton.addEventListener('click', (event) => {
+    if (!session?.user) return;
+    event.preventDefault();
+    openPractice();
   });
 
   $('#account-switch').addEventListener('click', () => setSignupMode(!signingUp));
@@ -415,33 +418,66 @@ function bindEvents() {
     submit.disabled = true;
     message(accountFeedback, signingUp ? 'Creating your account…' : 'Signing in…');
 
-    const result = signingUp
-      ? await supabase.auth.signUp({
-        email,
-        password,
-        options: { emailRedirectTo: window.location.href.split('#')[0] },
-      })
-      : await supabase.auth.signInWithPassword({ email, password });
+    try {
+      const result = signingUp
+        ? await supabase.auth.signUp({
+          email,
+          password,
+          options: { emailRedirectTo: new URL('signin.html', window.location.href).href },
+        })
+        : await supabase.auth.signInWithPassword({ email, password });
 
-    submit.disabled = false;
-    if (result.error) {
-      message(accountFeedback, errorText(result.error), true);
-    } else if (signingUp && !result.data.session) {
-      message(accountFeedback, 'Check your email for a confirmation link, then sign in.');
-    } else {
-      message(accountFeedback, signingUp ? 'Account created.' : 'Signed in.');
-      if (result.data.session) accountDialog.close();
+      if (result.error) throw result.error;
+      if (signingUp && !result.data.session) {
+        message(accountFeedback, 'Check your email for a confirmation link, then sign in.');
+      } else {
+        message(accountFeedback, signingUp ? 'Account created.' : 'Signed in.');
+        if (result.data.session) accountDialog.close();
+      }
+    } catch (error) {
+      message(accountFeedback, errorText(error), true);
+    } finally {
+      submit.disabled = false;
+    }
+  });
+
+  $('#account-reset').addEventListener('click', async () => {
+    if (!backendReady) {
+      message(accountFeedback, 'Password reset is unavailable until Supabase is connected.', true);
+      return;
+    }
+    const email = $('#account-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      message(accountFeedback, 'Enter a valid email address to request a password reset.', true);
+      $('#account-email').focus();
+      return;
+    }
+
+    const resetButton = $('#account-reset');
+    if (resetButton.disabled) return;
+    resetButton.disabled = true;
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: new URL('signin.html?mode=recovery', window.location.href).href,
+      });
+      if (error) throw error;
+      message(accountFeedback, 'If an account exists for that email, a password-reset link will arrive shortly.');
+    } catch (error) {
+      message(accountFeedback, errorText(error), true);
+    } finally {
+      resetButton.disabled = false;
     }
   });
 
   $('#account-signout').addEventListener('click', async () => {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      accountDialog.close();
+      message(backendStatus, 'You have signed out.');
+    } catch (error) {
       message(accountFeedback, errorText(error), true);
-      return;
     }
-    accountDialog.close();
-    message(backendStatus, 'You have signed out.');
   });
 
   $$('[data-open-practice]').forEach((link) => {

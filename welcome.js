@@ -50,7 +50,7 @@
     });
   }
 
-  /* 3 ─ Magnetic primary button (mouse only) ─────────────────────────────── */
+  /* 3 ─ Magnetic signup link (mouse only) ────────────────────────────────── */
   const cta = $('#drop-btn');
   if (cta && finePointer && !reduce) {
     cta.addEventListener('pointermove', (e) => {
@@ -60,86 +60,4 @@
     cta.addEventListener('pointerleave', () => { cta.style.translate = ''; });
   }
 
-  /* 4 ─ "Gimme a brief": a brief gets dropped from the site's real set ─────── */
-  const briefs = [
-    { chip: 'UI/UX Design', icon: 'i-component', color: '#3ecf8e', title: 'Fintech app design.',
-      text: 'You’ll own the design of our core workflow, the part of the product where users spend 80% of their time and where most of our drop-off happens.',
-      art: { img: 'assets/card-fintech.png' } },
-    { chip: 'Writing', icon: 'i-type', color: '#7aa5ff', title: 'One story. Five hooks.',
-      text: 'Turn a tiny everyday moment into five opening lines that make people want to read on.',
-      art: { lines: ['What if...', 'Nobody told', 'you this?'] } },
-    { chip: 'Visual storytelling', icon: 'i-eye', color: '#faae1f', title: 'Find your fresh angle.',
-      text: 'Take three photos of one object. Change the light, the crop, and the story it tells.',
-      art: { img: 'assets/card-visual.png' } },
-  ];
-  const dlg = $('#drop');
-  const els = {
-    art: $('.drop__art', dlg), chip: $('#drop-chip'), chipIcon: $('#drop-chip-icon'), chipText: $('#drop-chip-text'),
-    title: $('#drop-title'), text: $('#drop-text'), another: $('#drop-another'),
-  };
-  let current = -1;
-
-  function show(i, animate) {
-    current = i;
-    const b = briefs[i];
-    els.art.replaceChildren();
-    if (b.art.img) {
-      const im = new Image(); im.src = b.art.img; im.alt = ''; els.art.append(im);
-    } else {
-      const d = document.createElement('div'); d.className = 'art-text';
-      b.art.lines.forEach((l, n) => { const s = document.createElement('span'); s.textContent = l; if (n === 1) s.className = 'accent'; d.append(s); });
-      els.art.append(d);
-    }
-    els.chip.style.color = b.color;
-    els.chipIcon.className = 'i ' + b.icon;
-    els.chipText.textContent = b.chip;
-    els.title.textContent = b.title;
-    els.text.textContent = b.text;
-    if (animate && !reduce) {
-      els.art.firstElementChild.animate(
-        [{ opacity: 0, transform: 'translateY(-60px) rotate(-14deg) scale(.8)' }, { opacity: 1, transform: 'translateY(6px) rotate(3deg)', offset: .6 }, { opacity: 1, transform: 'none' }],
-        { duration: 650, easing: 'cubic-bezier(.3,1.3,.5,1)' }
-      );
-      [els.chip, els.title, els.text].forEach((el, n) => el.animate(
-        [{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
-        { duration: 420, delay: 120 + n * 70, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' }
-      ));
-    }
-  }
-  const pickNext = () => {
-    let n; do { n = Math.floor(Math.random() * briefs.length); } while (n === current && briefs.length > 1);
-    return n;
-  };
-
-  if (cta && dlg && typeof dlg.showModal === 'function') {
-    const label = $('.cta__label', cta);
-    const original = label.textContent;
-    cta.addEventListener('click', () => {
-      if (cta.disabled) return;
-      cta.disabled = true; cta.classList.add('is-loading'); label.textContent = 'Dropping';
-      setTimeout(() => {
-        show(pickNext(), false);
-        dlg.showModal();
-        cta.disabled = false; cta.classList.remove('is-loading'); label.textContent = original;
-      }, reduce ? 0 : 750);
-    });
-    els.another.addEventListener('click', () => {
-      const dice = $('.i-dices', els.another);
-      if (!reduce) dice.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(540deg) scale(1.3)', offset: .6 }, { transform: 'rotate(720deg)' }], { duration: 650, easing: 'cubic-bezier(.2,.8,.2,1)' });
-      show(pickNext(), true);
-    });
-    $('.drop__close', dlg).addEventListener('click', () => dlg.close());
-    dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });   // backdrop click
-  }
-
-  /* 5 ─ Sign in isn't wired up in this prototype – say so instead of dead-ending ─ */
-  const toast = $('#toast');
-  let toastTimer = 0;
-  $('#signin').addEventListener('click', (e) => {
-    e.preventDefault();
-    toast.textContent = 'Sign in isn’t connected in this prototype yet.';
-    toast.classList.add('is-on');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove('is-on'), 2800);
-  });
 })();
