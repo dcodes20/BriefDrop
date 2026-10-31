@@ -74,8 +74,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .welcome__actions { width: 100%; max-width: 354px; margin-top: 24px; margin-bottom: auto; display: flex; flex-direction: column; align-items: center; gap: 16px; }
 
 .cta {
-  position: relative; display: flex; align-items: center; justify-content: center;
-  overflow: hidden; isolation: isolate; width: 100%; text-align: center; text-decoration: none;
+  position: relative; overflow: hidden; isolation: isolate; width: 100%;
   padding: 19px 20px 18px; border-radius: 16px; background: var(--primary); color: var(--white);
   font-family: var(--f-btn); font-weight: 600; font-size: 16px; line-height: normal;
   transition: transform .2s, box-shadow .25s, translate .25s cubic-bezier(.2,.8,.2,1), filter .2s;
@@ -90,15 +89,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @keyframes dots { 0% { content: ""; } 25% { content: "."; } 50% { content: ".."; } 75%, 100% { content: "..."; } }
 
 .signin { font-size: 14px; line-height: 19px; color: var(--muted); }
-.signin a { position: relative; z-index: 0; display: inline-block; padding: 0 1px; font-weight: 700; color: var(--white); text-decoration: none;
-  transition: transform .2s cubic-bezier(.2,.8,.2,1); }
+.signin a { position: relative; z-index: 0; display: inline-block; padding: 0 1px; font-weight: 700; color: var(--white); text-decoration: none; }
 /* highlighter swipe behind "Sign in" (Figma: blue bar, rotated −4°) */
 .signin a::before {
   content: ""; position: absolute; inset: -3px -2px -1px; z-index: -1; border-radius: 1px; background: var(--primary);
   transform: rotate(-4deg) scaleX(1); transform-origin: left center; transition: transform .35s cubic-bezier(.3,1.4,.5,1);
 }
 .signin a:hover::before, .signin a:focus-visible::before { transform: rotate(-6deg) scale(1.12, 1.18); }
-.signin a:active { transform: translateY(1px) scale(.96); }
 
 /* ---------------------------------------------------------------- intro + ambient motion */
 @keyframes rise { from { opacity: 0; transform: translateY(.55em) rotate(3deg); } to { opacity: 1; transform: none; } }

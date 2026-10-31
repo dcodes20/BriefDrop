@@ -111,7 +111,7 @@
     return n;
   };
 
-  if (cta instanceof HTMLButtonElement && dlg && typeof dlg.showModal === 'function') {
+  if (cta && dlg && typeof dlg.showModal === 'function') {
     const label = $('.cta__label', cta);
     const original = label.textContent;
     cta.addEventListener('click', () => {
@@ -132,4 +132,14 @@
     dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });   // backdrop click
   }
 
+  /* 5 ─ Sign in isn't wired up in this prototype – say so instead of dead-ending ─ */
+  const toast = $('#toast');
+  let toastTimer = 0;
+  $('#signin').addEventListener('click', (e) => {
+    e.preventDefault();
+    toast.textContent = 'Sign in isn’t connected in this prototype yet.';
+    toast.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-on'), 2800);
+  });
 })();
